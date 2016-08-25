@@ -1,5 +1,5 @@
 # Vagrant box
-  A CentOS box provisioned with:
+  A CentOS box provisioned (Ansible) with:
 * MySQL
 * Java7
 * Glassfish
