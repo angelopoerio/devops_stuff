@@ -1,0 +1,23 @@
+---
+# tasks file for mysql       
+- name: update yum repo
+  command: wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
+
+- name: update yum repo
+  command: 'rpm -Uvh mysql-community-release-el6-5.noarch.rpm'
+
+- name: install mysql
+  command: 'yum -y install mysql mysql-server'
+
+# tasks file for mysql
+- name: start mysql
+  command: "service mysqld start"
+
+- name: set mysql root user
+  command: "mysqladmin -u root password 'root'"
+
+- name: set mysql at boot
+  command: "chkconfig mysqld on"
+
+- name: start mysql
+  command: "service mysqld start"

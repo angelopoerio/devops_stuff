@@ -1,0 +1,43 @@
+---
+# tasks file for apache
+- name: install apache
+  yum: name=httpd.x86_64 state=present
+
+- name: install mod_ssl
+  yum: name=mod_ssl.x86_64 state=present
+
+- name: Copy welcome.conf in conf.d
+  template: src=conf-d.welcome.conf dest=/etc/httpd/conf.d/welcome.conf
+
+- name: Copy httpd.conf in conf
+  template: src=conf-httpd.conf dest=/etc/httpd/conf/httpd.conf
+
+- name: Copy magic in conf
+  template: src=conf-magic dest=/etc/httpd/conf/magic
+
+- name: Copy multibiom.conf in conf.d
+  template: src=conf.d-multibiom.conf dest=/etc/httpd/conf.d/multibiom.conf
+
+- name: Copy multibiom_ssl.conf in conf.d
+  template: src=conf.d-multibiom_ssl.conf dest=/etc/httpd/conf.d/multibiom_ssl.conf
+
+- name: Copy notrace.conf in conf.d
+  template: src=conf.d-notrace.conf dest=/etc/httpd/conf.d/notrace.conf
+
+- name: Copy php.conf in conf.d
+  template: src=conf.d-php.conf dest=/etc/httpd/conf.d/php.conf
+
+- name: Copy ssl.conf in conf.d
+  template: src=conf.d-ssl.conf dest=/etc/httpd/conf.d/ssl.conf
+
+- name: Copy SSL certificate
+  template: src=vagrant.crt dest=/etc/pki/tls/certs/metel.it-256.cer
+
+- name: Copy certificate's private key
+  template: src=vagrant.key dest=/etc/pki/tls/private/metel.it-256-nopass.key
+
+- name: set apache at boot
+  command: "chkconfig httpd on"
+
+- name: start apache
+  command: "service httpd start"

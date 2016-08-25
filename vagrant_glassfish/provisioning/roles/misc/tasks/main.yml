@@ -1,0 +1,4 @@
+---
+# tasks file for misc
+- name: Copy motd
+  template: src=motd dest=/etc/motd

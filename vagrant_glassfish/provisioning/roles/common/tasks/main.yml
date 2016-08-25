@@ -1,0 +1,14 @@
+---
+## Update box
+- name: Update to the latest version
+  yum: name=* state=latest
+
+
+- name: Install screen, bash-completion, zip, unzip, vim
+  yum: name={{ item }} state=latest
+  with_items:
+    - vim
+    - zip
+    - unzip
+    - screen
+    - libselinux-python.x86_64

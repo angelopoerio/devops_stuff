@@ -1,0 +1,11 @@
+---
+- hosts: all
+  sudo: true
+  roles:
+    - common
+    - apache
+    - java
+    - mysql
+    - glassfish
+    - sync
+    - misc

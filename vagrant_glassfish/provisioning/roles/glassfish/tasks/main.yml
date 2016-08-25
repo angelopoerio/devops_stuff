@@ -1,0 +1,19 @@
+---
+# tasks file for glassfish
+
+- name: Download Glassfish
+  command: "wget -q -O {{glassfish_archive}} {{download_url}} creates={{glassfish_archive}}"
+- name: Install unzip
+  yum: name=unzip state=latest 
+- name: Unzip glassfish
+  command: "unzip {{glassfish_archive}} -d {{glassfish_name}}"
+- name: Copy glassfish passwd files
+  template: src=set_password.j2 dest=/tmp/set_password.txt
+- name: Copy glassfish passwd files 2
+  template: src=password.j2 dest=/tmp/password.txt
+- name: Set glassfish password
+  command: '{{glassfish_name}}/glassfish3/bin/asadmin --user {{glassfish_admin_user}} --passwordfile /tmp/set_password.txt change-admin-password --domain_name domain1'
+- name: Start glassfish
+  command: "{{glassfish_name}}/glassfish3/bin/asadmin --passwordfile /tmp/password.txt --host localhost --port 4848 start-domain domain1" 
+- name: Copy boot script
+  template: src=conf_glassfish.j2 dest=/home/vagrant/conf_glassfish.sh mode=777

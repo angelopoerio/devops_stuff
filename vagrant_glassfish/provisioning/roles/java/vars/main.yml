@@ -1,0 +1,6 @@
+---
+# vars file for java
+download_url: http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz
+download_folder: /opt
+java_name: "{{download_folder}}/jdk1.7.0_79"
+java_archive: "{{download_folder}}/jdk-7u79-linux-x64.tar.gz"

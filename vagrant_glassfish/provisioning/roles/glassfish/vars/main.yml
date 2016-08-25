@@ -1,0 +1,9 @@
+---
+# vars file for glassfish
+
+download_url: http://download.java.net/glassfish/3.1.2.2/release/glassfish-3.1.2.2.zip
+download_folder: /opt
+glassfish_name: "{{download_folder}}/glassfish-3.1.2.2"
+glassfish_archive: "{{download_folder}}/glassfish-3.1.2.2.zip"
+glassfish_admin_user: admin
+glassfish_admin_pass: admin

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ "$UID" -ne 0 ]
+then
+	echo "run as root"
+	exit 1
+fi
+
+echo "When asked for user/password type {{glassfish_admin_user}}..."
+/opt/glassfish-3.1.2.2/glassfish3/bin/asadmin start-domain domain1
+/opt/glassfish-3.1.2.2/glassfish3/bin/asadmin --host localhost --port 4848 enable-secure-admin
+/opt/glassfish-3.1.2.2/glassfish3/bin/asadmin stop-domain domain1
+/opt/glassfish-3.1.2.2/glassfish3/bin/asadmin start-domain domain1
+echo "test connection @ https://localhost:9000 (on the host system)"
+exit 0
