@@ -7,7 +7,6 @@ import requests
 
 '''
     Simple script to check the status of periodic backups in S3 buckets & notify in a slack channel!
-    Usage: put in in a crontab job
     Author: Angelo Poerio <angelo.poerio@gmail.com>
 '''
 
@@ -44,8 +43,9 @@ def check_bucket(bucket_name):
     slack_notifier('bucket {0} is ok!'.format(bucket_name))
 
 
-for bucket in BUCKETS_TO_CHECK:
-    try:
-        check_bucket(bucket)
-    except Exception as ex:
-        slack_notifier('PANIC! Exception while fetching informations about the bucket {0}'.format(bucket))
+if __name__ == '__main__':
+    for bucket in BUCKETS_TO_CHECK:
+        try:
+            check_bucket(bucket)
+        except Exception as ex:
+            slack_notifier('PANIC! Exception while fetching informations about the bucket {0}'.format(bucket))
