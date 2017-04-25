@@ -1,0 +1,32 @@
+- hosts: all
+  name: Gluster configuration
+  sudo: true
+  vars:
+    - brick_dir: /replicated_volume
+    - volume: replicated_volume
+    - replicas: 3
+    - nodes:
+      - 192.168.33.10
+      - 192.168.33.11
+      - 192.168.33.12
+  tasks:
+    - name: Install glusterfs server 
+      apt: 
+        name: glusterfs-server
+        state: present
+     
+    - name: Ensure the service of glusterfs is running
+      service: name=glusterfs-server state=started
+    
+    - name: Create Gluster volume
+      gluster_volume: bricks={{brick_dir}} force=true
+                      cluster={{nodes | join(",")}}
+                      replicas={{replicas}} name={{volume}} state=present
+      run_once: true
+      when: inventory_hostname == 'node_3' 
+      retries: 6
+      delay: 15
+    
+    - name: Start Gluster volume
+      gluster_volume: name={{volume}} state=started
+      when: inventory_hostname == 'node_3'
