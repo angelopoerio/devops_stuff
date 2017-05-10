@@ -31,10 +31,10 @@
   template: src=conf.d-ssl.conf dest=/etc/httpd/conf.d/ssl.conf
 
 - name: Copy SSL certificate
-  template: src=vagrant.crt dest=/etc/pki/tls/certs/metel.it-256.cer
+  template: src=vagrant.crt dest=/etc/pki/tls/certs/test.it-256.cer
 
 - name: Copy certificate's private key
-  template: src=vagrant.key dest=/etc/pki/tls/private/metel.it-256-nopass.key
+  template: src=vagrant.key dest=/etc/pki/tls/private/test.it-256-nopass.key
 
 - name: set apache at boot
   command: "chkconfig httpd on"
