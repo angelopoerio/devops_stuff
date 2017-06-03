@@ -10,6 +10,9 @@ PostgreSQL cluster in streaming replication
 # vagrant_gluster_ansible
 A glusterfs cluster provisioned by Ansible
 
+# vagrant_docker_swarm
+A docker swarm cluster provisioned by Ansible
+
 # backup_checker
 A python script to check the status of your backups in S3 buckets (it requires Boto)
 

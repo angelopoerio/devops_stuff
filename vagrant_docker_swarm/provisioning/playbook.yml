@@ -1,0 +1,20 @@
+- hosts: all
+  name: Setup a docker swarm cluster
+  sudo: true
+  tasks:
+    - name: Install wget
+      apt: 
+         name: wget
+         state: present
+    - name: Install docker
+      shell: wget -qO- https://get.docker.com/ | sh creates=/var/run/docker_installed
+    - name: Initialize manager node 
+      shell: docker swarm init --advertise-addr 192.168.33.10 creates=/etc/docker/key.json
+      when: inventory_hostname == 'node_manager'
+    - name: Get swarm token 
+      shell: docker swarm join-token worker|grep "docker" -A 2
+      register: join_cmd
+      when: inventory_hostname == 'node_manager' 
+    - name: Join worker node
+      shell: "{{ hostvars['node_manager']['join_cmd'] }}"
+      when: inventory_hostname != 'node_manager'
