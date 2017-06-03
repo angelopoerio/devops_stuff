@@ -1,5 +1,5 @@
 # Introduction
-A [Docker swarm] (https://docs.docker.com/engine/swarm/) cluster provisioned by Ansible
+A [Docker swarm](https://docs.docker.com/engine/swarm/) cluster provisioned by Ansible
 
 # Howto
 Run: vagrant up
