@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: redis-rc
+spec:
+  replicas: 3
+  selector:
+    name: redis-pod
+  template:
+    metadata:
+      name: redis-pod
+      labels:
+        name: redis-pod
+    spec:
+      containers:
+      - name: redis-pod
+        image: docker.io/redis
+        ports:
+        - containerPort: 6379

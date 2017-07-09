@@ -16,5 +16,8 @@ A docker swarm cluster provisioned by Ansible
 # backup_checker
 A python script to check the status of your backups in S3 buckets (it requires Boto)
 
+# kubernetes_redis
+A redis deployment on k8s
+
 # poor_man_container
 Simple test with linux namespaces
