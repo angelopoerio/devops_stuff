@@ -12,7 +12,7 @@ iperf -c ip_of_the_iperf_server
 ```
 
 # Advanced stuff
-* You can change the network adapter (NIC) of the VM with the *nic_type* option, as explained [here](https://www.vagrantup.com/docs/virtualbox/networking.html)
+* You can change the network adapter (NIC) of the VM with the **nic_type** option, as explained [here](https://www.vagrantup.com/docs/virtualbox/networking.html)
 
 # Requirements
 - Ansible
