@@ -10,6 +10,9 @@ PostgreSQL cluster in streaming replication
 # vagrant_gluster_ansible
 A glusterfs cluster provisioned by Ansible
 
+# vagrant_iperf
+Test environment for [iperf](http://iperf.fr)
+
 # vagrant_docker_swarm
 A docker swarm cluster provisioned by Ansible
 

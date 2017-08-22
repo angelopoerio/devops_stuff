@@ -1,0 +1,8 @@
+- hosts: all
+  name: iperf
+  sudo: true
+  tasks:
+    - name: Install iperf
+      apt: 
+        name: iperf
+        state: present
