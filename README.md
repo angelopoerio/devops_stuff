@@ -16,6 +16,9 @@ Test environment for [iperf](http://iperf.fr)
 # vagrant_docker_swarm
 A docker swarm cluster provisioned by Ansible
 
+# freebsd_on_kvm
+A little script to install FreeBSD as guest on the kvm hypervisor
+
 # backup_checker
 A python script to check the status of your backups in S3 buckets (it requires Boto)
 
