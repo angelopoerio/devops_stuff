@@ -27,3 +27,6 @@ A redis deployment on k8s
 
 # poor_man_container
 Simple test with linux namespaces
+
+# Bind playground
+Playground for BIND9 (DNS daemon)
