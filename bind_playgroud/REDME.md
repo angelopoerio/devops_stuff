@@ -1,5 +1,5 @@
 # README
-A sample configuration for bind9 for an authoritative name server for the domain "example.org". Recursive queries are disabled.
+A sample configuration for a bind9 authoritative name server for the domain "example.org". Recursive queries are disabled.
 
 # How to run
 ```bash
