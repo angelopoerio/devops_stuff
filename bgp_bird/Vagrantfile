@@ -1,0 +1,20 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+#
+Vagrant.configure(2) do |config|
+
+  config.vm.define "router_1" do |router_1|
+     router_1.vm.box = "ubuntu/trusty64" 
+     router_1.vm.network "private_network", ip: "192.168.33.10" 
+     router_1.vm.provision "shell", path: "scripts/router_1.sh"
+  end
+
+  
+  config.vm.define "router_2" do |router_2|
+     router_2.vm.box = "ubuntu/trusty64" 
+     router_2.vm.network "private_network", ip: "192.168.33.11"
+     router_2.vm.provision "shell", path: "scripts/router_2.sh"
+  end
+
+end
