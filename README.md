@@ -36,3 +36,6 @@ Playground for BIND9 (DNS daemon)
 
 # BGP_BIRD 
 Playground for learning about the BIRD routing daemon
+
+# distributed_locking
+Playground for distributed locking (backed by ETCD)
