@@ -1,0 +1,12 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+#
+Vagrant.configure(2) do |config|
+
+  config.vm.define "bpftrace" do |bpftrace|
+     bpftrace.vm.box = "bento/ubuntu-19.04" 
+     bpftrace.vm.provision "shell", inline: "apt-get install -y bpftrace"
+  end
+
+end
